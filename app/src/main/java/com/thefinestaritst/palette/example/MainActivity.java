@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     long bitmap_create_time = System.currentTimeMillis();
-    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite);
+    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite_small);
     bitmap_create_time = System.currentTimeMillis() - bitmap_create_time;
     Log.d(TAG, "Bitmap create time: " + bitmap_create_time + " millisecond");
 
     long palette_generation_time = System.currentTimeMillis();
-    Palette palette = Palette.from(bitmap).generate();
+    Palette palette = Palette.from(bitmap).resizeBitmapArea(-1).generate();
     palette_generation_time = System.currentTimeMillis() - palette_generation_time;
     Log.d(TAG, "Palette generation time: " + palette_generation_time + " millisecond");
 
