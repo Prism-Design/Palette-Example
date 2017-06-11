@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     long bitmap_create_time = System.currentTimeMillis();
     BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
-    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite_small);
+    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite_medium);
     bitmap_create_time = System.currentTimeMillis() - bitmap_create_time;
     Log.d(TAG, "Bitmap create time: " + bitmap_create_time + " millisecond");
 
