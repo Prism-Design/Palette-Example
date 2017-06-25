@@ -1,4 +1,4 @@
-package com.thefinestaritst.palette.example;
+package com.thefinestartist.palette.example;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +9,10 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
+  static {
+    System.loadLibrary("native-lib");
+  }
+
   private static String TAG = "Palette Example";
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     long bitmap_create_time = System.currentTimeMillis();
     BitmapFactory.Options options = new BitmapFactory.Options();
     options.inScaled = false;
-    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite_medium);
+    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yosemite_small);
     bitmap_create_time = System.currentTimeMillis() - bitmap_create_time;
     Log.d(TAG, "Bitmap create time: " + bitmap_create_time + " millisecond");
 
@@ -34,5 +38,9 @@ public class MainActivity extends AppCompatActivity {
     for (Palette.Swatch swatch : palette.getSwatches()) {
       Log.e(TAG, "swatch: " + swatch);
     }
+
+    Log.e(TAG, "성공한듯: " + stringFromJNI());
   }
+
+  public native String stringFromJNI();
 }

@@ -1,4 +1,4 @@
-package com.thefinestaritst.palette.example;
+package com.thefinestartist.palette.example;
 
 import org.junit.Test;
 
